@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { fetchFromApi } from '../utils/api';
+import { fetchFromApi, getEndpointUrl } from '../utils/api';
 
 interface LeaderboardEntry {
   _id: string;
@@ -14,6 +14,8 @@ export default function Leaderboard() {
   const [leaderboard, setLeaderboard] = useState<LeaderboardEntry[]>([]);
   const [loading, setLoading] = useState(true);
 
+  const endpoint = getEndpointUrl('leaderboard');
+
   useEffect(() => {
     async function loadLeaderboard() {
       const data = await fetchFromApi<LeaderboardEntry>('leaderboard');
@@ -26,6 +28,7 @@ export default function Leaderboard() {
   return (
     <div className="container mt-5">
       <h2>🏆 Leaderboard</h2>
+      <p className="text-muted small">Endpoint: <code>{endpoint}</code></p>
       {loading ? (
         <p>Loading leaderboard...</p>
       ) : leaderboard.length === 0 ? (
