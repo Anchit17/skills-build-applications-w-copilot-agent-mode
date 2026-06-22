@@ -49,6 +49,8 @@ npm run build
 - Used to build API URL: `https://${VITE_CODESPACE_NAME}-8000.app.github.dev`
 - Leave empty or omit for localhost development
 
+Important: when deploying to GitHub Codespaces, ensure `VITE_CODESPACE_NAME` is defined in `.env.local` (copy from `.env.local.example` and set the value). If it is not defined, the frontend will safely fall back to `http://localhost:8000`.
+
 When `VITE_CODESPACE_NAME` is set, the frontend will connect to:
 - **API Base URL**: `https://${VITE_CODESPACE_NAME}-8000.app.github.dev`
 - **Endpoints**: `/api/users`, `/api/teams`, `/api/activities`, `/api/leaderboard`, `/api/workouts`

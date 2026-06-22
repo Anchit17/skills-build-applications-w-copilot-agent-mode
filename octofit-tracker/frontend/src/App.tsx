@@ -1,4 +1,4 @@
-import { BrowserRouter, Link, Routes, Route } from 'react-router-dom';
+import { Link, Routes, Route } from 'react-router-dom';
 import { API_BASE_URL } from './utils/api';
 import Users from './components/Users';
 import Teams from './components/Teams';
@@ -79,7 +79,7 @@ function Home() {
 
 function App() {
   return (
-    <BrowserRouter>
+    <>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
           <Link to="/" className="navbar-brand">
@@ -144,7 +144,7 @@ function App() {
       <footer className="bg-dark text-white text-center py-3 mt-5">
         <p>&copy; 2026 OctoFit Tracker. Built with React 19, Vite, Express, and MongoDB.</p>
       </footer>
-    </BrowserRouter>
+    </>
   );
 }
 
