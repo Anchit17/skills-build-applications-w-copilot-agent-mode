@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { fetchFromApi } from '../utils/api';
+import { fetchFromApi, getEndpointUrl } from '../utils/api';
 
 interface Activity {
   _id: string;
@@ -15,6 +15,8 @@ export default function Activities() {
   const [activities, setActivities] = useState<Activity[]>([]);
   const [loading, setLoading] = useState(true);
 
+  const endpoint = getEndpointUrl('activities');
+
   useEffect(() => {
     async function loadActivities() {
       const data = await fetchFromApi<Activity>('activities');
@@ -27,6 +29,7 @@ export default function Activities() {
   return (
     <div className="container mt-5">
       <h2>Activities</h2>
+      <p className="text-muted small">Endpoint: <code>{endpoint}</code></p>
       {loading ? (
         <p>Loading activities...</p>
       ) : activities.length === 0 ? (
