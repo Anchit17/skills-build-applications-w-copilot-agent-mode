@@ -1,5 +1,5 @@
 import { app, PORT } from './app.ts';
-import { connectDatabase, MONGO_URI } from './db.ts';
+import { connectDatabase, MONGO_URI } from './config/database.ts';
 
 async function start() {
   await connectDatabase();
